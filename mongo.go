@@ -54,7 +54,7 @@ func MemasukkanKoordinat(MongoConn *mongo.Database, colname string, coordinate [
 }
 
 func GeoIntersects(mongoconn *mongo.Database, long float64, lat float64) (namalokasi string) {
-	lokasicollection := mongoconn.Collection("geojson")
+	lokasicollection := mongoconn.Collection("GIS")
 	filter := bson.M{
 		"geometry": bson.M{
 			"$geoIntersects": bson.M{
