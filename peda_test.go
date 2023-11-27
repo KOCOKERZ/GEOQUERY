@@ -35,3 +35,18 @@ func TestUpdateGetData(t *testing.T) {
 	datagedung := GeoIntersects(mconn, 106.68136271186847, -6.193543362832116)
 	fmt.Println(datagedung)
 }
+
+func TestGeoWithin(t *testing.T) {
+	mconn := SetConnectionTest("mongodb+srv://fitrahaliakbar:fitrah354@cluster0.vb2aato.mongodb.net/", "GIS")
+	coordinates := [][][]float64{
+		{
+			{106.68136271186847, -6.193543362832116},
+			{106.68132861056944, -6.19370318772549},
+			{106.68150155287583, -6.193732246791583},
+			{106.68149911706826, -6.19357000031799},
+			{106.68136271186847, -6.193543362832116},
+		},
+	}
+	datagedung := GeoWithin(mconn, coordinates)
+	fmt.Println(datagedung)
+}
