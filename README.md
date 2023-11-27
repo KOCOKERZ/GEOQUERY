@@ -1,155 +1,18 @@
-# Befous
-Nama	= Ibrohim Mubarok <br />
-NPM		= 1214081 <br />
-Kelas	= 3C <br />
+# GeoQuery
 
-## Mengambil semua data gejson
+Peta Pedia Library Package
 
-Link API-nya
+## ENV Setting
 
-```
-https://asia-southeast2-gis3-401509.cloudfunctions.net/BefousAmbilDataGeojson
-```
+![image](https://github.com/petapedia/geoquery/assets/11188109/1009c159-7cb2-4d0f-bf78-5ad590a307ad)
 
-Response
+## Release
 
-```
-[{
-      "type": "Feature",
-      "properties": {
-        "name": "nama property"
-      },
-      "geometry": {
-        "coordinates": [
-          x,y
-        ],
-        "type": "tipe geojson"
-      }
-    }]
-```
-
-## Registrasi Akun
-
-Link API-nya
-
-```
-https://asia-southeast2-gis3-401509.cloudfunctions.net/BefousMembuatUser
-```
-
-Body
-
-```
-{
-    "username": "input username di sini",
-    "password": "input password di sini",
-	"role": "input role di sini"
-}
-```
-
-Response
-
-```
-{"status":true,"message":"Berhasil Input data"}
-```
-
-## Login Akun
-
-### Membuat Token
-
-Link API-nya
-
-```
-https://asia-southeast2-gis3-401509.cloudfunctions.net/BefousMembuatTokenUser
-```
-
-Body
-
-```
-{
-    "username": "input username di sini",
-    "password": "input password di sini"
-}
-```
-
-Response bila berhasil
-
-```
-{"status":true,"token":"token yang didapat","message":"Selamat Datang"}
-```
-
-Response bila gagal
-
-```
-{"status":false,"message":"Password Salah"}
-```
-
-### Menyimpan Token
-
-Link API-nya
-
-```
-https://asia-southeast2-gis3-401509.cloudfunctions.net/BefousLoginUser
-
-```
-
-Header
-
-```
-Login : masukkan token di sini
-```
-
-Response bila berhasil
-
-```
-{
-    "status": true,
-    "message": "data User berhasil diambil",
-    "data": [
-        {
-            "username": "data",
-            "password": "data",
-            "role": "role"
-        },
-        {
-            "username": "data",
-            "password": "data",
-            "role": "role"
-        }
-    ]
-}
-```
-
-Response bila gagal
-
-```
-{"status":false,"message":"Data Username tidak ada di database"}
-```
-
-## Delete Akun
-
-Link API-nya
-
-```
-https://asia-southeast2-gis3-401509.cloudfunctions.net/BefousHapusUser
-
-```
-
-Body
-
-```
-{
-    "username": "input username di sini"
-}
-```
-
-Response bila berhasil
-
-```
-{"status":false,"message":"Berhasil Delete data"}
-```
-
-Response bila gagal
-
-```
-{"status":false,"message":"error parsing application/json: EOF"}
+```sh
+go get -u all
+go mod tidy
+git tag                                 #check current version
+git tag v0.0.3                          #set tag version
+git push origin --tags                  #push tag version to repo
+go list -m github.com/KOCOKERZ/GEOQUERY@v1.0.1   #publish to pkg dev, replace ORG/URL with your repo URL
 ```

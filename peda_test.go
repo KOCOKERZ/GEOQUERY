@@ -32,6 +32,6 @@ func TestDecode(t *testing.T) {
 
 func TestUpdateGetData(t *testing.T) {
 	mconn := SetConnectionTest("mongodb+srv://fitrahaliakbar:fitrah354@cluster0.vb2aato.mongodb.net/", "GIS")
-	datagedung := GeoIntersects(mconn, 103.60768133536988, -1.628526295003084)
+	datagedung := GeoIntersects(mconn, 106.68136271186847, -6.193543362832116)
 	fmt.Println(datagedung)
 }
