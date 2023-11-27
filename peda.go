@@ -183,6 +183,7 @@ func PostGeoIntersects(mongoenv, dbname string, r *http.Request) string {
 	if err != nil {
 		response.Message = "error parsing application/json: " + err.Error()
 	} else {
+		response.Status = true
 		response.Message = GeoIntersects(mconn, longlat.Longitude, longlat.Latitude)
 	}
 	return ReturnStruct(response)
